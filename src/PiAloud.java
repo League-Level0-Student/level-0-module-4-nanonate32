@@ -20,15 +20,23 @@ public class PiAloud {
 		// 4. Print ALL the digits of of Pi (hint: use a loop)
 		for (int i = 0; i < pi.length(); i++) {
 			speak(pi.charAt(i));
-		}
-		// 5. Use the speak() method to speak all the digits of Pi.
 
-		// [ADVANCED]
-		// *6. Get a character from the user using the getInputFromUser() method
-		getInputFromUser();
-		// *7. Compare the users' char to the next digit of Pi
-		// *8. If they are correct, print out "correct". If they are not, print
-		// "incorrect" to System.err.println
+			// 5. Use the speak() method to speak all the digits of Pi.
+
+			// [ADVANCED]
+			// *6. Get a character from the user using the getInputFromUser() method
+			char numbers = getInputFromUser();
+			// *7. Compare the users' char to the next digit of Pi
+			if (numbers == (pi.charAt(i))) {
+				System.out.println("correct");
+			}
+			else {
+				System.err.println("incorrect");
+				i=0;
+			}
+			// *8. If they are correct, print out "correct". If they are not, print
+			// "incorrect" to System.err.println
+		}
 	}
 
 	static void speak(char characterToSpeak) {
