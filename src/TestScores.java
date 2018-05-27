@@ -6,7 +6,8 @@ public class TestScores {
 
 		String score = JOptionPane.showInputDialog("What was your test score?");
 		Double.parseDouble(score);
-		if (score >= 7.5) {
+		if (score >= 75) {
+
 		}
 	}
 }
