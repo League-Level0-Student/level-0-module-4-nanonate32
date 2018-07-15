@@ -1,30 +1,34 @@
+import ddf.minim.*;          
+AudioSample woohooSound;          
+boolean playSound = true;          
+
 PImage donkey;
 PImage tail;
 int x;
 int y;
- void setup(){
+void setup() {
   donkey = loadImage("Donkey.jpg");   
-tail = loadImage("donkey tail.png");
-size(800,600);
-donkey.resize(width,height);
-tail.resize(150,0);
+  tail = loadImage("donkey tail.png");
+  size(800, 600);
+  donkey.resize(width, height);
+  tail.resize(150, 0);
 }
-void draw(){  
-image(tail, x-150, y-150);
-rect(0, 0, 30, 30);
-rect(240,  150, 40,40 );
+void draw() {  
+
 
   println(mouseX+ ""+mouseY);
-}
-if(dist(0, 0, mouseX, mouseY) < 30){
-  background (donkey);
-}
-else{
-  background(255,255,255);
-}
-if(mousePressed){
-  x = mouseX;
-  y = mouseY;
-  
-}
+
+  if (dist(0, 0, mouseX, mouseY) < 30) {
+    background (donkey);
+  } else {
+    background(255, 255, 255);
+  }
+  if (mousePressed) {
+    x = mouseX;
+    y = mouseY;
+  }  
+  if(dist(240,150,mouseX,mouseY) < 30) {
+  image(tail, x-150, y-150);
+  rect(0, 0, 30, 30);
+rect(240, 150, 40, 40 );
 }
