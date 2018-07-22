@@ -7,6 +7,8 @@ PImage tail;
 int x;
 int y;
 void setup() {
+  Minim minim = new Minim(this);     
+woohooSound = minim.loadSample("homer-woohoo.wav"); 
   donkey = loadImage("Donkey.jpg");   
   tail = loadImage("donkey tail.png");
   size(800, 600);
@@ -27,8 +29,14 @@ void draw() {
     x = mouseX;
     y = mouseY;
   }  
-  if(dist(240,150,mouseX,mouseY) < 30) {
-  image(tail, x-150, y-150);
-  rect(0, 0, 30, 30);
-rect(240, 150, 40, 40 );
+  if(dist (240,150,mouseX,mouseY) < 30) {
+    
+   if (playSound) {
+     woohooSound.trigger();
+     playSound = false;
+}
+ 
+  }
+  
+   image(tail, x-150, y-150);
 }
