@@ -8,7 +8,7 @@ int x;
 int y;
 void setup() {
   Minim minim = new Minim(this);     
-woohooSound = minim.loadSample("homer-woohoo.wav"); 
+  woohooSound = minim.loadSample("homer-woohoo.wav"); 
   donkey = loadImage("Donkey.jpg");   
   tail = loadImage("donkey tail.png");
   size(800, 600);
@@ -25,18 +25,20 @@ void draw() {
   } else {
     background(255, 255, 255);
   }
+  image(tail, mouseX-150, mouseY-150);
   if (mousePressed) {
     x = mouseX;
     y = mouseY;
-  }  
-  if(dist (240,150,mouseX,mouseY) < 30) {
+
+    if (dist (240, 150, mouseX, mouseY) < 30) {
+
+      if (playSound) {
+        woohooSound.trigger();
+        playSound = false;
+      }
+    }
+
     
-   if (playSound) {
-     woohooSound.trigger();
-     playSound = false;
-}
- 
   }
   
-   image(tail, x-150, y-150);
 }
